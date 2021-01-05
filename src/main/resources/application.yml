@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  kafka:
+    template:
+      default-topic: logpoint-alert1
+    producer:
+      bootstrap-servers: localhost:9091, localhost:9092, localhost:9093
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        bootstrap.servers: localhost:9091, localhost:9092, localhost:9093
+---
+spring:
+  profiles: dev
+  kafka:
+    producer:
+      bootstrap-servers: kafka1.dev.cygilant-cloud.com:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+---
+spring:
+  profiles: prod
+  kafka:
+    producer:
+      bootstrap-servers: prodkafkaserver:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+
+
