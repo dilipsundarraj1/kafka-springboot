@@ -20,7 +20,7 @@ public class WebhookEventsController {
 //    @Autowired
 //    WebhookEventProducer webhookEventProducer;
 
-    @PostMapping("http://localhost:8000/logpoint-webhook/alert/notification")
+    @PostMapping("/logpoint-webhook/alert/notification")
     public ResponseEntity<Webhook> postWebhookEvent(@RequestBody Webhook webhook) throws JsonProcessingException {
         //Invoke Kafka Producer
 //        webhookEvent.setWebhookEventType(WebhookEventType.NEW);
